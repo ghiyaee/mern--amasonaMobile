@@ -1,35 +1,21 @@
 // import logo from './logo.svg';
 // import './App.css';
-import data from './data';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import HomeScreen from './screens/HomeScreen';
 const App = () => {
   return (
-    <div dir="rtl">
-      <header>
-        <a href="/"> Amasona Mobile</a>
-      </header>
-      <main>
-        <h1>محصولات ویژه</h1>
-        <div className="products">
-          {data.products.map((p) => (
-            <div className="product" key={p.name}>
-              <a href="/product">
-                <img src={p.image} alt={p.name} />
-              </a>
-
-              <div className="product-info">
-                <p>{p.name}</p>
-                <p>
-                  <strong>{p.price}</strong>
-                  &nbsp;
-                    تومان 
-                </p>
-                <button>افزودن به سبد خرید</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+    <Router>
+      <div dir="rtl">
+        <header>
+          <a href="/"> Amasona Mobile</a>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 };
 export default App;
