@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import data from '../data';
 function HomeScreen() {
   return (
@@ -7,11 +8,13 @@ function HomeScreen() {
       <div className="products">
         {data.products.map((p) => (
           <div className="product" key={p.name}>
-            <a href="/product">
+            <Link to={`/product/${p.brand}`}>
               <img src={p.image} alt={p.name} />
-            </a>
+            </Link>
             <div className="product-info">
-              <p>{p.name}</p>
+              <Link to={`/product/${p.brand}`}>
+                <p>{p.name}</p>
+              </Link>
               <p>
                 <strong>{p.price}</strong>
                 &nbsp; تومان
@@ -25,4 +28,4 @@ function HomeScreen() {
   );
 }
 
-export default HomeScreen
+export default HomeScreen;
