@@ -1,37 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import data from '../data';
-import axios from "axios"
+import axios from 'axios';
+import logger from 'use-reducer-logger';
+import Rating from '../component/Rating';
+const initail = {
+  products: [],
+  loading: true,
+  error: '',
+};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'FATCH_REQUEST':
+      return { ...state, loading: true };
+    case 'FATCH_SUCCESS':
+      return { ...state, products: action.payload, loading: false };
+    case 'FATCH_FAIL':
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
 function HomeScreen() {
-  const [products, setProducts] = useState([])
+  const [{ loading, error, products }, dispatch] = useReducer(
+    logger(reducer),
+    initail
+  );
+  // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
-      const result = await axios.get('api/products');
-      setProducts(result.data)
-    }
-    fetchdata()
-  },[])
+      dispatch({ type: 'FATCH_REQUEST' });
+      try {
+        const result = await axios.get('api/products');
+        dispatch({ type: 'FATCH_SUCCESS', payload: result.data });
+      } catch (err) {
+        dispatch({ type: 'FATCH_FAIL', payload: err.massage });
+      }
+      // setProducts(result.data);
+    };
+    fetchdata();
+  }, []);
   return (
     <div>
       <h1>محصولات ویژه</h1>
       <div className="products">
-        {products.map((p) => (
-          <div className="product" key={p.name}>
-            <Link to={`/product/${p.brand}`}>
-              <img src={p.image} alt={p.name} />
-            </Link>
-            <div className="product-info">
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>{error}</div>
+        ) : (
+          products.map((p) => (
+            <div className="product" key={p.name}>
               <Link to={`/product/${p.brand}`}>
-                <p>{p.name}</p>
+                <img src={p.image} alt={p.name} />
               </Link>
-              <p>
-                <strong>{p.price}</strong>
-                &nbsp; تومان
-              </p>
-              <button>افزودن به سبد</button>
+              <div className="product-info">
+                <Link to={`/product/${p.brand}`}>
+                  <p>{p.name}</p>
+                </Link>
+                <p>
+                  <strong>{p.price}</strong>
+                  &nbsp; تومان
+                </p>
+                <Rating rating={p.rating} numberReview={p.numberReviews} />
+                <button>افزودن به سبد خرید</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

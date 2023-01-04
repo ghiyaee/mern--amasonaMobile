@@ -56,3 +56,6 @@ body {
   border: none;
   cursor: pointer;
  }
+ .rating span{
+  color: #ffc000
+ }
