@@ -2,7 +2,6 @@ import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import data from '../data';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
 import Rating from '../component/Rating';
 const initail = {
   products: [],
@@ -11,11 +10,11 @@ const initail = {
 };
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'FATCH_REQUEST':
+    case 'FETCH_REQUEST':
       return { ...state, loading: true };
-    case 'FATCH_SUCCESS':
+    case 'FETCH_SUCCESS':
       return { ...state, products: action.payload, loading: false };
-    case 'FATCH_FAIL':
+    case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
@@ -23,18 +22,18 @@ const reducer = (state, action) => {
 };
 function HomeScreen() {
   const [{ loading, error, products }, dispatch] = useReducer(
-    logger(reducer),
+    reducer,
     initail
   );
   // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
-      dispatch({ type: 'FATCH_REQUEST' });
+      dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('api/products');
-        dispatch({ type: 'FATCH_SUCCESS', payload: result.data });
+        const result = await axios.get('/api/products');
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
-        dispatch({ type: 'FATCH_FAIL', payload: err.massage });
+        dispatch({ type: 'FETCH_FAIL', payload: err.massage });
       }
       // setProducts(result.data);
     };

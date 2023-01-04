@@ -50,7 +50,7 @@ function Rating(props) {
           }
         />
       </span>
-      <spn> &nbsp; {numberReview}بازدیدشده </spn>
+      <span> &nbsp; {numberReview}بازدیدشده </span>
     </div>
   );
 }

@@ -55,6 +55,10 @@ body {
   font-weight: bold;
   border: none;
   cursor: pointer;
+  background: rgb(30, 30, 227);
+  color:#fff;
+  margin-top: .5rem;
+  border-radius: 5px;
  }
  .rating span{
   color: #ffc000
