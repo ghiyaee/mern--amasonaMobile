@@ -30,7 +30,7 @@ const Product = () => {
     const fetchdata = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get(`/api/products/${brand}`);
+        const result = await axios.get(`/api/product/${brand}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
@@ -43,11 +43,29 @@ const Product = () => {
   ) : error ? (
     <div>{error}</div>
   ) : (
-    <div>
-      <div>{product.image}</div>
-      <div>{product.brand}</div>
-      <div>{product.rating}</div>
-      <div>{product.price}</div>
+    <div className="product_list">
+      <div className="product-img">
+        <img src={product.image}></img>
+      </div>
+      <div className="titel-list">
+        <div>{product.brand}</div>
+        <Rating rating={product.rating} numberReview={product.numberReviews} />
+        <div>قیمت &nbsp;{product.price} تومان</div>
+        <div>{product.descp}</div>
+      </div>
+      <div className="product_total">
+        <div>قیمت &nbsp;{product.price} تومان</div>
+        {product.countInStock > 0 ? (
+          <div className="status_count green">موجود</div>
+        ) : (
+          <div className="status_count red">نا موجود</div>
+        )}
+        {product.countInStock > 0 ? (
+          <button className="status_buy ">خرید</button>
+        ) : (
+         ''
+        )}
+      </div>
     </div>
   );
 };

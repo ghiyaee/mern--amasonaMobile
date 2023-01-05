@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family:font-b, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: font-b, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,51 +15,104 @@ body {
   font-family: font-b;
   src: url(./fonts/Yekan.ttf);
 }
- header{
+header {
   background: #404040;
   padding: 1rem;
- }
- header a{
-  color:#fff;
+}
+header a {
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
- }
- main{
+}
+main {
   padding: 1rem;
- }
- .products{
+}
+.products {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
- }
- .product{
+}
+.product {
   box-shadow: 0 0 15px 1px #404040;
+  border-radius: 15px;
   margin: 1rem;
   padding: 1rem;
-  border-radius: 15px;
- }
- .product img{
+}
+.product img {
   width: 100%;
   width: 300px;
   height: 350px;
- }
- .product-info{
+}
+.product-info {
   padding: 1rem;
- }
- .product-info a{
+}
+.product-info a {
   text-decoration: none;
- }
- .product-info button{
-  padding: .5rem 1rem;
+}
+.product-info button {
+  padding: 0.5rem 1rem;
   font-size: 1.5rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
   background: rgb(30, 30, 227);
-  color:#fff;
-  margin-top: .5rem;
+  color: #fff;
+  margin-top: 0.5rem;
   border-radius: 5px;
- }
- .rating span{
-  color: #ffc000
- }
+}
+.rating span {
+  color: #ffc000;
+}
+.product_list {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+.product-img {
+  flex: 6;
+}
+.titel-list {
+  flex: 3;
+  box-shadow: 0 0 10px 5px #bcb8b8;
+  height: 200px;
+}
+.titel-list div {
+  margin: 0.5rem;
+}
+.product_total {
+  flex: 3;
+  box-shadow: 0 0 10px 5px #bcb8b8;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.product_total div button {
+}
+.status_count {
+  width: 50px;
+  color: #fff;
+  padding: 0.3rem;
+  text-align: center;
+  border-radius: 5px;
+}
+.red {
+  background-color: tomato;
+}
+.green {
+  background-color: rgba(1, 178, 36, 0.927);
+}
+.status_buy {
+  padding: 0.5rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: rgb(30, 30, 227);
+  color: #fff;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}

@@ -4,7 +4,7 @@ const app = Express();
 app.get('/api/products', (req, res) => {
   res.send(data.products);
 });
-app.get('/api/products/:brand', (req, res) => {
+app.get('/api/product/:brand', (req, res) => {
   const product = data.products.find((f) => f.brand === req.params.brand);
   product
     ? res.status(200).send(product)

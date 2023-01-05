@@ -21,10 +21,7 @@ const reducer = (state, action) => {
   }
 };
 function HomeScreen() {
-  const [{ loading, error, products }, dispatch] = useReducer(
-    reducer,
-    initail
-  );
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, initail);
   // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
@@ -62,7 +59,9 @@ function HomeScreen() {
                   &nbsp; تومان
                 </p>
                 <Rating rating={p.rating} numberReview={p.numberReviews} />
-                <button>افزودن به سبد خرید</button>
+                <Link to={`/product/${p.brand} `}>
+                  <button>ثبت سفارش</button>
+                </Link>
               </div>
             </div>
           ))
