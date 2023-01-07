@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import data from '../data';
 import axios from 'axios';
 import Rating from '../component/Rating';
 const initail = {
@@ -22,7 +21,6 @@ const reducer = (state, action) => {
 };
 function HomeScreen() {
   const [{ loading, error, products }, dispatch] = useReducer(reducer, initail);
-  // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchdata = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -32,7 +30,6 @@ function HomeScreen() {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.massage });
       }
-      // setProducts(result.data);
     };
     fetchdata();
   }, []);

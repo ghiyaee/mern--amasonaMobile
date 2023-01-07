@@ -18,6 +18,8 @@ body {
 header {
   background: #404040;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 header a {
   color: #fff;
@@ -76,6 +78,7 @@ main {
   flex: 3;
   box-shadow: 0 0 10px 5px #bcb8b8;
   height: 200px;
+  border-radius: 5px;
 }
 .titel-list div {
   margin: 0.5rem;
@@ -89,6 +92,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  border-radius: 5px;
 }
 .product_total div button {
 }
@@ -115,4 +119,24 @@ main {
   color: #fff;
   margin-top: 0.5rem;
   border-radius: 5px;
+}
+
+
+.buy{
+  width: 30px;
+  height: 30px;
+  background-color: tomato;
+  border-radius: 50%;
+  color:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titel_buy p{
+   color:#fff;
+}
+.titel_buy{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }

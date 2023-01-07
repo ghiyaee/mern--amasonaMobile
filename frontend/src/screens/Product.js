@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Rating from '../component/Rating';
+import { useContext } from 'react';
+import { Store } from '../Store';
+
 const initail = {
   product: [],
   loading: true,
@@ -38,6 +41,10 @@ const Product = () => {
     };
     fetchdata();
   }, [brand]);
+  const { state, dispatch:ctxDispatch } = useContext(Store)
+  const addCartHandel = () => {
+    ctxDispatch({ type: 'ADD_CART',payload:{...product,quntity:1} });
+  }
   return loading ? (
     <div>لطفا شکیبا باشید...</div>
   ) : error ? (
@@ -61,10 +68,16 @@ const Product = () => {
           <div className="status_count red">نا موجود</div>
         )}
         {product.countInStock > 0 ? (
-          <button className="status_buy ">خرید</button>
+              <button
+                className="status_buy "
+                onClick={addCartHandel}
+          >
+            خرید
+          </button>
         ) : (
-         ''
+          ''
         )}
+        <div>{}</div>
       </div>
     </div>
   );
