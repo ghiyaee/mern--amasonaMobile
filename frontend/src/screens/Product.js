@@ -63,7 +63,7 @@ const Product = () => {
       <div className="product_total">
         <div>قیمت &nbsp;{product.price} تومان</div>
         {product.countInStock > 0 ? (
-          <div className="status_count green">موجود</div>
+              <div className="status_count green">موجودی {product.countInStock }</div>
         ) : (
           <div className="status_count red">نا موجود</div>
         )}
