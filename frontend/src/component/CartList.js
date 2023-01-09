@@ -30,7 +30,7 @@ function CartList() {
                   <img src={item.image} />
                   <span>{item.brand}</span>
                   <div
-                    className="fass fa-minus-circle"
+                    className="fass "
                     onClick={() =>
                       updateCartHandel(
                         item,
@@ -42,7 +42,7 @@ function CartList() {
                   </div>
                   <span> {item.quantiy}</span>
                   <div
-                    className="fass fa-plus-circle"
+                    className="fass "
                     onClick={() =>
                       updateCartHandel(
                         item,
@@ -53,7 +53,7 @@ function CartList() {
                     +
                   </div>
                   <span>{item.price} قیمت</span>
-                  <div className="fass fa-trash" onClick={()=> ctxDispatch({type:'CART_REMOVE_ITEM',payload:item})}>پاک</div>
+                  <div className="fass " onClick={()=> ctxDispatch({type:'CART_REMOVE_ITEM',payload:item})}>پاک</div>
                 </div>
               );
             })
