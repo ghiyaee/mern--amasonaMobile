@@ -109,7 +109,7 @@ main {
 }
 .green {
   background-color: rgba(1, 178, 36, 0.927);
-  padding:.5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.2rem;
 }
 .status_buy {
@@ -124,22 +124,83 @@ main {
   border-radius: 5px;
 }
 
-
-.buy{
+.buy {
   width: 30px;
   height: 30px;
   background-color: tomato;
   border-radius: 50%;
-  color:#fff;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.titel_buy p{
-   color:#fff;
+.titel_buy p {
+  color: #fff;
 }
-.titel_buy{
+.titel_buy {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+.wrrap{
+  display: flex;
+}
+.col{
+  flex: 8;
+}
+.total{
+  flex: 4;
+}
+.container_cart{
+  display: flex;
+  align-items: center;
+}
+.cart-list {
+  /* flex: 8; */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin: 2rem;
+  border: 1px solid #eee;
+  padding: 1rem;
+  font-size: 1.5rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cart-list img {
+  height: inherit;
+}
+.total{
+    height: 250px;
+   /* display: flex;
+  align-items: center; */
+  flex-wrap: wrap;
+  margin: 2rem;
+  border: 1px solid #eee;
+  padding: 1rem;
+  font-size: 1.5rem;
+  justify-content: space-around;
+  text-align: center;
+}
+.fass{
+  background-color: tomato;
+  width: 50px;
+  height: 50px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 50%;
+ color: #fff;
+ cursor: pointer;
+}
+.checkOut button{
+padding: 0.5rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: rgb(30, 30, 227);
+  color: #fff;
+  margin-top: 0.5rem;
+  border-radius: 5px;
 }

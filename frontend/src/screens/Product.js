@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useReducer } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Rating from '../component/Rating';
@@ -26,6 +26,7 @@ const reducer = (state, action) => {
 };
 
 const Product = () => {
+  const Navigate=useNavigate()
   const param = useParams();
   const { brand } = param;
   const [{ loading, error, product }, dispatch] = useReducer(reducer, initail);
@@ -41,9 +42,21 @@ const Product = () => {
     };
     fetchdata();
   }, [brand]);
-  const { state, dispatch:ctxDispatch } = useContext(Store)
-  const addCartHandel = () => {
-    ctxDispatch({ type: 'ADD_CART',payload:{...product,quntity:1} });
+  const { state, dispatch: ctxDispatch } = useContext(Store)
+  const { cart } = state
+  
+  const addCartHandel =async () => {
+    const newItem = cart.cartItem.find(f => f._id === product._id)
+  const quantiy = newItem ? newItem.quantiy + 1 : 1;
+    const { data } = await axios.get(`/api/product/brand/${product._id}`);
+    if (data.countInStock < quantiy) {
+      window.alert('متاسفانه .موجودی تمام شد');
+        Navigate('/cart');
+      return;
+    } 
+ 
+    ctxDispatch({ type: 'ADD_CART', payload: { ...product, quantiy } });
+    Navigate('/cart')
   }
   return loading ? (
     <div>لطفا شکیبا باشید...</div>
@@ -56,6 +69,7 @@ const Product = () => {
       </div>
       <div className="titel-list">
         <div>{product.brand}</div>
+        <div> کد محصول &nbsp;{product._id}</div>
         <Rating rating={product.rating} numberReview={product.numberReviews} />
         <div>قیمت &nbsp;{product.price} تومان</div>
         <div>{product.descp}</div>
@@ -63,15 +77,14 @@ const Product = () => {
       <div className="product_total">
         <div>قیمت &nbsp;{product.price} تومان</div>
         {product.countInStock > 0 ? (
-              <div className="status_count green">موجودی {product.countInStock }</div>
+          <div className="status_count green">
+            موجودی {product.countInStock}
+          </div>
         ) : (
           <div className="status_count red">نا موجود</div>
         )}
         {product.countInStock > 0 ? (
-              <button
-                className="status_buy "
-                onClick={addCartHandel}
-          >
+          <button className="status_buy " onClick={addCartHandel}>
             خرید
           </button>
         ) : (

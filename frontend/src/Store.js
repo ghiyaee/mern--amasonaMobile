@@ -6,13 +6,22 @@ const initail = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_CART':
+      const newItem = action.payload;
+      const exitItem = state.cart.cartItem.find((f) => f._id === newItem._id);
+      const cartItem = exitItem
+        ? state.cart.cartItem.map((item) =>
+          item._id === exitItem._id ? newItem : item
+        )
+        : [...state.cart.cartItem, newItem];
       return {
         ...state,
-        cart: {
-          ...state.cart,
-          cartItem: [...state.cart.cartItem, action.payload],
-        },
+        cart: { ...state.cart, cartItem },
       };
+    case 'CART_REMOVE_ITEM':
+      const cartItems = state.cart.cartItem.filter(f =>
+        f._id !== action.payload._id);
+      return{...state,cart:{...state.cart,cartItems}}
+      
     default:
       return state;
   }

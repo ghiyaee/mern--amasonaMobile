@@ -1,17 +1,19 @@
 const data = {
   products: [
     {
+      _id:1,
       name: 'Iphone 14',
       categoty: 'Mobile',
       image: '/images/p1.png',
       price: 2000,
       countInStock: 12,
       brand: 'appel 14',
-      rating:5.5,
+      rating: 5.5,
       numberReviews: 10,
       descp: 'کیفیت عالی',
     },
     {
+      _id: 2,
       name: 'Iphone 13',
       categoty: 'Mobile',
       image: '/images/p2.png',
@@ -23,17 +25,19 @@ const data = {
       descp: 'کیفیت عالی',
     },
     {
+      _id: 3,
       name: 'Iphone 12',
       categoty: 'Mobile',
       image: '/images/p3.png',
       price: 1500,
-      countInStock: 14,
+      countInStock: 2,
       brand: 'appel 12',
-      rating:2.5,
+      rating: 2.5,
       numberReviews: 7,
       descp: 'کیفیت عالی',
     },
     {
+      _id: 4,
       name: 'Iphone 11',
       categoty: 'Mobile',
       image: '/images/p4.png',

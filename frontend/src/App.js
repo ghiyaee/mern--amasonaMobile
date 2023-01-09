@@ -3,6 +3,7 @@ import HomeScreen from './screens/HomeScreen';
 import Product from './screens/Product';
 import { useContext } from 'react';
 import { Store } from './Store';
+import CartList from './component/CartList';
 const App = () => {
   const {state}=useContext(Store)
   const{cart}=state
@@ -14,7 +15,7 @@ const App = () => {
           <div className='titel_buy'>
             <p>سبد خرید شما</p>
             {cart.cartItem.length > 0 ? (
-                <div className=" buy">{cart.cartItem.length }</div>
+                <div className=" buy">{cart.cartItem.reduce((a,c)=>a+c.quantiy,0)} </div>
             ) : (
               ''
             )}
@@ -23,6 +24,7 @@ const App = () => {
         <main>
           <Routes>
             <Route path="/product/:brand" element={<Product />} />
+            <Route path='/cart'element={<CartList/>}/>
             <Route path="/" element={<HomeScreen />} />
           </Routes>
         </main>
