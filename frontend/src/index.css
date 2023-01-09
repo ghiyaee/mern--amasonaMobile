@@ -145,6 +145,9 @@ main {
 .wrrap{
   display: flex;
 }
+.emty{
+  font-size: 2rem;
+}
 .col{
   flex: 8;
 }

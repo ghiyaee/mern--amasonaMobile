@@ -13,7 +13,11 @@ function CartList() {
            return;
          }
          ctxDispatch({ type: 'ADD_CART', payload: { ...item, quantiy } });
-    }
+  }
+  const removeHandel = (item) => {
+    ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item })
+    console.log(item);
+  }
   return (
     <>
       {/* <Link to="/">
@@ -22,7 +26,7 @@ function CartList() {
       <div className="wrrap">
         <div className="col">
           {cart.cartItem.length === 0 ? (
-            <span>سبد شما خالی است</span>
+            <span className='emty'>سبد شما خالی است</span>
           ) : (
             cart.cartItem.map((item) => {
               return (
@@ -53,7 +57,7 @@ function CartList() {
                     +
                   </div>
                   <span>{item.price} قیمت</span>
-                  <div className="fass " onClick={()=> ctxDispatch({type:'CART_REMOVE_ITEM',payload:item})}>پاک</div>
+                  <div className="fass " onClick={()=> removeHandel(item)}>پاک</div>
                 </div>
               );
             })
