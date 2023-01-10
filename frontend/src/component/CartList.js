@@ -15,13 +15,13 @@ function CartList() {
          }
          ctxDispatch({ type: 'ADD_CART', payload: { ...item, quantiy } });
   }
-  const handelBuy = () => {
-    if (cart.cartItem.length === 0) {
-     window.alert('سبدخرید شما خالی است');
-     Navigate('/');
-      return;
-    }
-  }
+  // const handelBuy = () => {
+  //   if (cart.cartItem.length === 0) {
+  //    window.alert('سبدخرید شما خالی است');
+  //    Navigate('/');
+  //     return;
+  //   }
+  // }
   return (
     <>
       <div className="wrrap">
@@ -77,7 +77,7 @@ function CartList() {
           <h3> {cart.cartItem.reduce((a, c) => a + c.quantiy, 0)}</h3>
           <h3> {cart.cartItem.reduce((a, c) => a + c.price * c.quantiy, 0)}</h3>
           <div className="checkOut">
-            <button onClick={ handelBuy}>ثبت نهایی</button>
+            <button onClick={''}>ثبت نهایی</button>
           </div>
         </div>
       </div>
