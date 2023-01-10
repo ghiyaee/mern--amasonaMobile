@@ -20,6 +20,8 @@ function CartList() {
      window.alert('سبدخرید شما خالی است');
      Navigate('/');
       return;
+    } else {
+      Navigate('/sing')
     }
   }
   return (
