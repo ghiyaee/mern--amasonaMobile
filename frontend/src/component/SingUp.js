@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+const handelForm = (e) => {
+    e.preventDefault()
+}
 function SingUp() {
   return (
     <div className="wrrap_sing">
       <div className="frm">
-        <form>
-          <label for="email" >ایمیل</label>
-          <input type="email" id='email' required/>
+        <form onSubmit={handelForm}>
+          <label for="email">ایمیل</label>
+          <input type="email" id="email" required />
           <label>رمز عبور</label>
-          <input type="Password" required/>
-          <button className="btn" type='submit' value='Submit'>ورود</button>
+          <input type="Password" required />
+          <button className="btn" type="submit" value="Submit">
+            ورود
+          </button>
         </form>
       </div>
       <div className="btn_login">
