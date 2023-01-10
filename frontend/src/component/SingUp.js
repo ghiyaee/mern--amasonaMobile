@@ -5,7 +5,8 @@ const handelForm = (e) => {
 }
 function SingUp() {
   return (
-    <div className="wrrap_sing">
+      <div className="wrrap_sing">
+          <h2 className='titel_form'>فرم ورود یا ثبت نام</h2>
       <div className="frm">
         <form onSubmit={handelForm}>
           <label for="email">ایمیل</label>
@@ -20,7 +21,7 @@ function SingUp() {
       <div className="btn_login">
         <p>ثبت نام نکردید؟</p>
         <Link to="/regi">
-          <button className="btn">ثبت نام</button>
+          <button className="btn"> ثبت نام کنید</button>
         </Link>
       </div>
     </div>

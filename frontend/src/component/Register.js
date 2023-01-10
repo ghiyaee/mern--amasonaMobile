@@ -15,7 +15,7 @@ function Register() {
           <label for="pass">رمز عبور</label>
           <input type="Password" id="pass" required />
           <button className="btn" type="submit" value="Submit">
-            تاییدواتمام ثبت نام
+            تایید و اتمام ثبت نام
           </button>
         </form>
       </div>
