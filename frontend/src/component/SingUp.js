@@ -5,14 +5,12 @@ function SingUp() {
     <div className="wrrap_sing">
       <div className="frm">
         <form>
-          <label>ایمیل</label>
-          <input type="Email" />
+          <label for="email" >ایمیل</label>
+          <input type="email" id='email' required/>
           <label>رمز عبور</label>
-          <input type="Password" />
+          <input type="Password" required/>
+          <button className="btn" type='submit' value='Submit'>ورود</button>
         </form>
-        <Link to="/cart">
-          <button className="btn">ورود</button>
-        </Link>
       </div>
       <div className="btn_login">
         <p>ثبت نام نکردید؟</p>

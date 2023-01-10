@@ -5,16 +5,14 @@ function Register() {
     <div className="wrrap_sing">
       <div className="frm">
         <form>
-          <label>نام کاربری</label>
-          <input type="Email" />
-          <label>ایمیل</label>
-          <input type="Email" />
-          <label>رمز عبور</label>
-          <input type="Password" />
-        </form>
-        <Link to={'/cart'}>
+          <label for="user">نام کاربری</label>
+          <input type="text" id="user" required />
+          <label for="email">ایمیل</label>
+          <input type="email" id="email" required />
+          <label for="pass">رمز عبور</label>
+          <input type="Password" id="pass" required />
           <button className="btn">تاییدواتمام ثبت نام</button>
-        </Link>
+        </form>
       </div>
     </div>
   );
