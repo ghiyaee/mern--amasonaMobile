@@ -134,6 +134,10 @@ main {
   justify-content: center;
   align-items: center;
 }
+.titel_buy i{
+  color: #fff;
+  font-size: 1.5rem;
+}
 .titel_buy p {
   color: #fff;
 }

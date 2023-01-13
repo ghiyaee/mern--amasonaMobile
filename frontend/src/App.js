@@ -24,6 +24,7 @@ const App = () => {
             ) : (
               ''
             )}
+            <i className="fa-solid fa-cart-shopping"></i>
           </div>
         </header>
         <main>

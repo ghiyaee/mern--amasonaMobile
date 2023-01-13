@@ -2,11 +2,12 @@ import Express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 import data from '../backend/data.js';
+import chalk from 'chalk';
 
 dotenv.config();
-mongoose.connect(process.env.MONGODB_URI).then( ()=> {
-  console.log('connected to db');
-}).catch(err => {console.log(err.message) })
+mongoose.connect(process.env.MONGODB_URI).then(() => {
+  console.log(chalk.bgGreen.white.bold('connected to db'));
+}).catch(err => { console.log(chalk.bgRed.white.bold(err.message)) });
 
 const app = Express()
 app.get('/api/products', (req, res) => {
