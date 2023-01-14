@@ -25,6 +25,15 @@ const App = () => {
               ''
             )}
             <i className="fa-solid fa-cart-shopping"></i>
+            <div className="titel_login">
+              <Link to={'/sing'}>
+                <span>ورود</span>
+              </Link>{' '}
+              /{' '}
+              <Link to={'/regi'}>
+                <span>ثبت نام</span>
+              </Link>
+            </div>
           </div>
         </header>
         <main>

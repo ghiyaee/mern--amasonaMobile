@@ -1,6 +1,6 @@
 import React from 'react';
-function Rating(props) {
-  const { rating, numberReview } = props;
+function Rating({ rating, numberReview }) {
+  // const {} = props;
   return (
     <div className="rating">
       <span>

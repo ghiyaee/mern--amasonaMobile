@@ -7,7 +7,7 @@ const initail = {
   loading: true,
   error: '',
 };
-console.log(...initail.products);
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
