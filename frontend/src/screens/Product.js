@@ -30,6 +30,7 @@ const Product = () => {
   const param = useParams();
   const { brand } = param;
   const [{ loading, error, product }, dispatch] = useReducer(reducer, initail);
+  console.log(product);
   useEffect(() => {
     const fetchdata = async () => {
       dispatch({ type: 'FETCH_REQUEST' });

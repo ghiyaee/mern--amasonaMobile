@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id:1,
+      // _id:1,
       name: 'Iphone 14',
       categoty: 'Mobile',
       image: '/images/p1.png',
@@ -13,7 +13,7 @@ const data = {
       descp: 'کیفیت عالی',
     },
     {
-      _id: 2,
+      // _id: 2,
       name: 'Iphone 13',
       categoty: 'Mobile',
       image: '/images/p2.png',
@@ -25,7 +25,7 @@ const data = {
       descp: 'کیفیت عالی',
     },
     {
-      _id: 3,
+      // _id: 3,
       name: 'Iphone 12',
       categoty: 'Mobile',
       image: '/images/p3.png',
@@ -37,7 +37,7 @@ const data = {
       descp: 'کیفیت عالی',
     },
     {
-      _id: 4,
+      // _id: 4,
       name: 'Iphone 11',
       categoty: 'Mobile',
       image: '/images/p4.png',
