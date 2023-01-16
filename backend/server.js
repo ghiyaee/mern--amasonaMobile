@@ -1,11 +1,9 @@
 import Express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import data from '../backend/data.js';
 import chalk from 'chalk';
 import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
-import Product from './models/productModel.js';
 import productRoute from './routes/producRoute.js';
 import productRouteId from './routes/productRouterId.js';
 dotenv.config();
