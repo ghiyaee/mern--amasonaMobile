@@ -1,4 +1,19 @@
+import bcrypt from "bcryptjs"
 const data = {
+  users: [
+    {
+      name: 'manoochehr',
+      email: 'ghiyaee47@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin:true,
+    },
+    {
+      name: 'farnoosh',
+      email: 'farnoosh@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin:false,
+    },
+  ],
   products: [
     {
       // _id:1,
@@ -6,7 +21,7 @@ const data = {
       categoty: 'Mobile',
       image: '/images/p1.png',
       price: 2000,
-      countInStock:3,
+      countInStock: 3,
       brand: 'appel 14',
       rating: 5.5,
       numberReviews: 10,
