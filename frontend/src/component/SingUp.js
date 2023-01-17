@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 const handelForm = (e) => {
-    e.preventDefault()
+  e.preventDefault()
+
 }
 function SingUp() {
   return (
@@ -9,7 +10,7 @@ function SingUp() {
           <h2 className='titel_form'>فرم ورود یا ثبت نام</h2>
       <div className="frm">
         <form onSubmit={handelForm}>
-          <label for="email">ایمیل</label>
+          <label htmlFor="email">ایمیل</label>
           <input type="email" id="email" required />
           <label>رمز عبور</label>
           <input type="Password" required />

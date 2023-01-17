@@ -1,4 +1,4 @@
-import Express from 'express';
+import express, { json, urlencoded } from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
@@ -16,8 +16,15 @@ mongoose
     console.log(chalk.bgRed.white.bold(err.message));
   });
 
-const app = Express();
-app.use('/api/seed', seedRouter);
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use((err,req,res,next)=>{
+  res.status(500).send({message:err.message})
+})
+
+app.use('/api/seeds', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/product', productRoute);
 app.use('/api/product',productRouteId)
